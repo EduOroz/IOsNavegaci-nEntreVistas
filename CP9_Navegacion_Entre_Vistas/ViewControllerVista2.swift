@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ViewControllerVista2.swift
 //  CP9_Navegacion_Entre_Vistas
 //
 //  Created by user125877 on 19/4/17.
@@ -8,25 +8,30 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewControllerVista2: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
-    @IBAction func onClickToVista2(_ sender: UIButton) {
-        performSegue(withIdentifier: "Vista1-Vista2", sender: nil)
-    }
     
-    @IBAction func onClickToAyudaFromVista1(_ sender: UIButton) {
-        performSegue(withIdentifier: "Vista1-Ayuda", sender: nil)
+    @IBAction func onClickToVista1(_ sender: UIButton) {
+        performSegue(withIdentifier: "Vista2-Vista1", sender: nil)
+    }
+
+    @IBAction func onClickToVista3(_ sender: UIButton) {
+        performSegue(withIdentifier: "Vista2-Vista3", sender: nil)
+    }
+
+    
+    @IBAction func onClickToAyudaFromVista2(_ sender: UIButton) {
+        performSegue(withIdentifier: "Vista2-Ayuda", sender: nil)
     }
     
     // MARK: - Navigation
@@ -34,11 +39,11 @@ class ViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-        if (segue.identifier=="Vista1-Ayuda"){
-            let controller1 = segue.destination as! ViewControllerAyuda
+        if (segue.identifier=="Vista2-Ayuda"){
+            let controller2 = segue.destination as! ViewControllerAyuda
             // Pass the selected object to the new view controller.
-            controller1.texto="Vengo de Vista 1"
+            controller2.texto="Vengo de Vista 2"
         }
     }
-}
 
+}

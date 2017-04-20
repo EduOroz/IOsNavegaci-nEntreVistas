@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ViewControllerVista4.swift
 //  CP9_Navegacion_Entre_Vistas
 //
 //  Created by user125877 on 19/4/17.
@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewControllerVista4: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,25 +21,24 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
-    @IBAction func onClickToVista2(_ sender: UIButton) {
-        performSegue(withIdentifier: "Vista1-Vista2", sender: nil)
+    @IBAction func onClickToAyudaFromVista4(_ sender: UIButton) {
+        performSegue(withIdentifier: "Vista4-Ayuda", sender: nil)
     }
     
-    @IBAction func onClickToAyudaFromVista1(_ sender: UIButton) {
-        performSegue(withIdentifier: "Vista1-Ayuda", sender: nil)
-    }
+    //Intentando hacer un segue unwind desde ayuda
+    @IBAction func unwindToVista4(segue: UIStoryboardSegue) {}
     
     // MARK: - Navigation
-    
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-        if (segue.identifier=="Vista1-Ayuda"){
-            let controller1 = segue.destination as! ViewControllerAyuda
+        if (segue.identifier=="Vista4-Ayuda"){
+            let controller4 = segue.destination as! ViewControllerAyuda
             // Pass the selected object to the new view controller.
-            controller1.texto="Vengo de Vista 1"
+            controller4.texto="Vengo de Vista 4"
         }
     }
-}
+    
 
+}
